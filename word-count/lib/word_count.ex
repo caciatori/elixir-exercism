@@ -10,7 +10,7 @@ defmodule WordCount do
 
     ~r{[[:alnum:]-]+}u
     |> Regex.scan(sentence)
-    |> Enum.flat_map(fn word -> word end)
+    |> List.flatten()
     |> Enum.reduce(%{}, fn word, acc ->
       Map.update(acc, word, 1, &(&1 + 1))
     end)
