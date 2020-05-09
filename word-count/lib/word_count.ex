@@ -8,7 +8,7 @@ defmodule WordCount do
   def count(sentence) do
     sentence = String.downcase(sentence)
 
-    ~r{[\w-]+}u
+    ~r{[[:alnum:]-]+}u
     |> Regex.scan(sentence)
     |> Enum.flat_map(fn word -> word end)
     |> Enum.reduce(%{}, fn word, acc ->
