@@ -12,7 +12,7 @@ defmodule RomanNumerals do
     {9, "IX"},
     {5, "V"},
     {4, "IV"},
-    {1, "I"},
+    {1, "I"}
   ]
 
   @doc """
@@ -20,11 +20,11 @@ defmodule RomanNumerals do
   """
   @spec numeral(pos_integer) :: String.t()
   def numeral(number) do
-    transform(number, @romans)
+    transform(number, @romans, "")
   end
 
-  defp transform(value, roman_symbols, acc \\ "")
   defp transform(_value, [], acc), do: acc
+
   defp transform(value, roman_symbols, acc) do
     [current | rest] = roman_symbols
 
@@ -34,7 +34,7 @@ defmodule RomanNumerals do
 
     if result > 0 do
       acc = acc <> String.duplicate(symbol, result)
-      transform(value - (number * result), rest, acc)
+      transform(value - number * result, rest, acc)
     else
       transform(value, rest, acc)
     end
