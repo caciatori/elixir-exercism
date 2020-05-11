@@ -8,7 +8,7 @@ I am adding the solutions that I built for the challenges. This can be used as a
   - [Hello World](https://exercism.io/my/tracks/elixir#exercise-hello-world)
   - [Rna Transcription](https://exercism.io/my/tracks/elixir#exercise-rna-transcription)
   - [Word Count](https://exercism.io/my/tracks/elixir#exercise-word-count)
-  - [Roman Numerals](https://exercism.io/my/tracks/elixir#roman-numerals) - Coming soon
+  - [Roman Numerals](https://exercism.io/my/tracks/elixir#roman-numerals) - In review
 
 ## Extra Exercise List
 N/A
