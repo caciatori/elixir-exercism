@@ -1,20 +1,18 @@
 defmodule Bob do
-  @whatever "Whatever."
-  @chill_out "Whoa, chill out!"
-  @sure "Sure."
-  @calm_down "Calm down, I know what I'm doing!"
-  @fine "Fine. Be that way!"
-
-  def hey(""), do: @fine
-
   def hey(input) do
+    calm_down = "Calm down, I know what I'm doing!"
+    chill_out = "Whoa, chill out!"
+    fine = "Fine. Be that way!"
+    sure = "Sure."
+    whatever = "Whatever."
+
+    input = String.trim(input)
     cond do
-      input =~ ~r/[[:upper:]!]+$/u -> @chill_out # -6
-      input =~ ~r/[[:space:]]+$/ -> @fine # -4
-      input =~ ~r/(\A[[:upper:]?'\s]+$)/ -> @calm_down # -2
-      input =~ ~r/[?]+/ -> @sure # -2
-      true -> @whatever
+      input =~ ~r/(^[A-Z]+\W)/ and input =~ ~r/\?$/ -> calm_down
+      input == "" or input =~ ~r/(^[[:space:]])/ -> fine
+      input =~ ~r/\?$/ -> sure
+      input =~ ~r/([[:upper:]]+$)/u or input =~ ~r/(([A-Z0-9]+!$))/ -> chill_out
+      true -> whatever
     end
   end
-
 end
