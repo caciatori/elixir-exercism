@@ -9,7 +9,8 @@ I am adding the solutions that I built for the challenges. This can be used as a
   - [Rna Transcription](https://exercism.io/my/tracks/elixir#exercise-rna-transcription)
   - [Word Count](https://exercism.io/my/tracks/elixir#exercise-word-count)
   - [Roman Numerals](https://exercism.io/my/tracks/elixir#roman-numerals)
-  - [Bob](https://exercism.io/my/tracks/elixir#bob) - In review
+  - [Bob](https://exercism.io/my/tracks/elixir#bob)
+  - [Beer Song](https://exercism.io/my/tracks/elixir#beer-song) - Comming soon
 
 ## Extra Exercise List
 N/A
