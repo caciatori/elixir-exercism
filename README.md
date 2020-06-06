@@ -5,6 +5,7 @@
 I am adding the solutions that I built for the challenges. This can be used as a base for more people that are trying too.
 
 ## Core Exercise List
+<<<<<<< HEAD
 
 - [Hello World](https://exercism.io/my/tracks/elixir#exercise-hello-world)
 - [Rna Transcription](https://exercism.io/my/tracks/elixir#exercise-rna-transcription)
@@ -14,6 +15,15 @@ I am adding the solutions that I built for the challenges. This can be used as a
 - [Beer Song](https://exercism.io/my/tracks/elixir#beer-song)
 - [Robot Simulator](https://exercism.io/my/tracks/elixir#robot-simulator) - Coming Soon
 - [List Ops](https://exercism.io/my/tracks/elixir#list-ops) - Under Review
+=======
+  - [Hello World](https://exercism.io/my/tracks/elixir#exercise-hello-world)
+  - [Rna Transcription](https://exercism.io/my/tracks/elixir#exercise-rna-transcription)
+  - [Word Count](https://exercism.io/my/tracks/elixir#exercise-word-count)
+  - [Roman Numerals](https://exercism.io/my/tracks/elixir#roman-numerals)
+  - [Bob](https://exercism.io/my/tracks/elixir#bob)
+  - [Beer Song](https://exercism.io/my/tracks/elixir#beer-song)
+  - [Robot Simulator](https://exercism.io/my/tracks/elixir#robot-simulator)
+>>>>>>> 09a1b38873a2c1b7c17fff2373cec20523057868
 
 ## Extra Exercise List
 
