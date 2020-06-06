@@ -11,7 +11,7 @@ I am adding the solutions that I built for the challenges. This can be used as a
   - [Roman Numerals](https://exercism.io/my/tracks/elixir#roman-numerals)
   - [Bob](https://exercism.io/my/tracks/elixir#bob)
   - [Beer Song](https://exercism.io/my/tracks/elixir#beer-song)
-  - [Robot Simulator](https://exercism.io/my/tracks/elixir#robot-simulator) - Under review
+  - [Robot Simulator](https://exercism.io/my/tracks/elixir#robot-simulator)
 
 ## Extra Exercise List
 N/A
