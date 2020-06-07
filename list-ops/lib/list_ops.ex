@@ -15,22 +15,22 @@ defmodule ListOps do
   def reverse(list), do: do_reverse(list, [])
 
   defp do_reverse([], acc), do: acc
-  defp do_reverse([h | t], acc), do: do_reverse(t, [h] ++ acc)
+  defp do_reverse([h | t], acc), do: do_reverse(t, [h | acc])
 
   @spec map(list(), function()) :: list()
   def map(l, f), do: do_map(l, f, [])
 
-  defp do_map([], _f, acc), do: acc
-  defp do_map([h | t], f, acc), do: do_map(t, f, acc ++ [f.(h)])
+  defp do_map([], _f, acc), do: reverse(acc)
+  defp do_map([h | t], f, acc), do: do_map(t, f, [f.(h) | acc])
 
   @spec filter(list(), function()) :: list()
   def filter(l, f), do: do_filter(l, f, [])
 
-  defp do_filter([], _f, acc), do: acc
+  defp do_filter([], _f, acc), do: reverse(acc)
 
   defp do_filter([h | t], f, acc) do
     if f.(h) do
-      do_filter(t, f, acc ++ [h])
+      do_filter(t, f, [h | acc])
     else
       do_filter(t, f, acc)
     end
@@ -44,7 +44,10 @@ defmodule ListOps do
   defp do_reduce([h | t], acc, f), do: do_reduce(t, f.(h, acc), f)
 
   @spec append(list(), list()) :: list()
-  def append(a, b), do: a ++ b
+  def append([], []), do: []
+  def append([], b), do: b
+  def append(a, []), do: a
+  def append(a, b), do: a |> reverse() |> reduce(b, &[&1 | &2])
 
   @spec concat([[any]]) :: list()
   def concat(ll), do: do_concat(ll, [])
