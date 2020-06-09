@@ -13,7 +13,7 @@ I am adding the solutions that I built for the challenges. This can be used as a
 - [Bob](https://exercism.io/my/tracks/elixir#bob)
 - [Beer Song](https://exercism.io/my/tracks/elixir#beer-song)
 - [Robot Simulator](https://exercism.io/my/tracks/elixir#robot-simulator)
-- [List Ops](https://exercism.io/my/tracks/elixir#list-ops) - Under Review
+- [List Ops](https://exercism.io/my/tracks/elixir#list-ops)
 
 ## Extra Exercise List
 
