@@ -38,7 +38,14 @@ defmodule Markdown do
 
   defp parse_header_md_level(hwt) do
     [h | t] = String.split(hwt)
-    {to_string(String.length(h)), Enum.join(t, " ")}
+    content = Enum.join(t, " ")
+
+    level =
+      h
+      |> String.length()
+      |> to_string()
+
+    {level, content}
   end
 
   defp parse_list_md_level(l) do
