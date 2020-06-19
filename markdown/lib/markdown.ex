@@ -19,43 +19,30 @@ defmodule Markdown do
     |> patch()
   end
 
-  defp process(t) do
-    cond do
-      String.starts_with?(t, "#") ->
-        t
-        |> parse_header_md_level()
-        |> enclose_with_header_tag
+  defp process("#" <> _rest = tag) do
+    tag |> parse_header_md_level() |> enclose_with_header_tag()
+  end
 
-      String.starts_with?(t, "*") ->
-        parse_list_md_level(t)
+  defp process("*" <> _rest = tag) do
+    parse_list_md_level(tag)
+  end
 
-      true ->
-        t
-        |> String.split()
-        |> enclose_with_paragraph_tag()
-    end
+  defp process(tag) do
+    tag |> String.split() |> enclose_with_paragraph_tag
   end
 
   defp parse_header_md_level(hwt) do
     [h | t] = String.split(hwt)
-    content = Enum.join(t, " ")
-
-    level =
-      h
-      |> String.length()
-      |> to_string()
-
-    {level, content}
+    {String.length(h), Enum.join(t, " ")}
   end
 
-  defp parse_list_md_level(l) do
-    t =
-      l
-      |> String.trim_leading("* ")
+  defp parse_list_md_level("* " <> original_content) do
+    tag_content =
+      original_content
       |> String.split()
       |> join_words_with_tags()
 
-    "<li>#{t}</li>"
+    "<li>#{tag_content}</li>"
   end
 
   defp enclose_with_header_tag({hl, htl}), do: "<h#{hl}>#{htl}</h#{hl}>"
@@ -74,19 +61,35 @@ defmodule Markdown do
     |> replace_suffix_md()
   end
 
+  @strong_prefix_regex ~r/^#{"__"}{1}/
+  @em_prefix_regex ~r/^[#{"_"}{1}][^#{"_"}+]/
+
   defp replace_prefix_md(w) do
     cond do
-      w =~ ~r/^#{"__"}{1}/ -> String.replace(w, ~r/^#{"__"}{1}/, "<strong>", global: false)
-      w =~ ~r/^[#{"_"}{1}][^#{"_"}+]/ -> String.replace(w, ~r/_/, "<em>", global: false)
-      true -> w
+      w =~ @strong_prefix_regex ->
+        String.replace(w, @strong_prefix_regex, "<strong>", global: false)
+
+      w =~ @em_prefix_regex ->
+        String.replace(w, ~r/_/, "<em>", global: false)
+
+      true ->
+        w
     end
   end
 
+  @strong_suffix_regex ~r/#{"__"}{1}$/
+  @em_suffix_regex ~r/[^#{"_"}{1}]/
+
   defp replace_suffix_md(w) do
     cond do
-      w =~ ~r/#{"__"}{1}$/ -> String.replace(w, ~r/#{"__"}{1}$/, "</strong>")
-      w =~ ~r/[^#{"_"}{1}]/ -> String.replace(w, ~r/_/, "</em>")
-      true -> w
+      w =~ @strong_suffix_regex ->
+        String.replace(w, @strong_suffix_regex, "</strong>")
+
+      w =~ @em_suffix_regex ->
+        String.replace(w, ~r/_/, "</em>")
+
+      true ->
+        w
     end
   end
 
