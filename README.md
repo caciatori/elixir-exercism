@@ -14,7 +14,7 @@ I am adding the solutions that I built for the challenges. This can be used as a
 - [Beer Song](https://exercism.io/my/tracks/elixir#beer-song)
 - [Robot Simulator](https://exercism.io/my/tracks/elixir#robot-simulator)
 - [List Ops](https://exercism.io/my/tracks/elixir#list-ops)
-- [Markdown](https://exercism.io/my/tracks/elixir#markdown) - In review
+- [Markdown](https://exercism.io/my/tracks/elixir#markdown)
 
 ## Extra Exercise List
 
