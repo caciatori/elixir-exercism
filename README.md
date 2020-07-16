@@ -6,15 +6,16 @@ I am adding the solutions that I built for the challenges. This can be used as a
 
 ## Core Exercise List
 
-- [Hello World](https://exercism.io/my/tracks/elixir#exercise-hello-world)
-- [Rna Transcription](https://exercism.io/my/tracks/elixir#exercise-rna-transcription)
-- [Word Count](https://exercism.io/my/tracks/elixir#exercise-word-count)
-- [Roman Numerals](https://exercism.io/my/tracks/elixir#roman-numerals)
-- [Bob](https://exercism.io/my/tracks/elixir#bob)
-- [Beer Song](https://exercism.io/my/tracks/elixir#beer-song)
-- [Robot Simulator](https://exercism.io/my/tracks/elixir#robot-simulator)
-- [List Ops](https://exercism.io/my/tracks/elixir#list-ops)
-- [Markdown](https://exercism.io/my/tracks/elixir#markdown)
+- [Hello World](https://exercism.io/my/tracks/elixir)
+- [Rna Transcription](https://exercism.io/my/tracks/elixir)
+- [Word Count](https://exercism.io/my/tracks/elixir)
+- [Roman Numerals](https://exercism.io/my/tracks/elixir)
+- [Bob](https://exercism.io/my/tracks/elixir)
+- [Beer Song](https://exercism.io/my/tracks/elixir)
+- [Robot Simulator](https://exercism.io/my/tracks/elixir)
+- [List Ops](https://exercism.io/my/tracks/elixir)
+- [Markdown](https://exercism.io/my/tracks/elixir)
+- [Bank Account](https://exercism.io/my/tracks/elixir) - In review
 
 ## Extra Exercise List
 
