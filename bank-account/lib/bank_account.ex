@@ -18,9 +18,7 @@ defmodule BankAccount do
   Close the bank. Makes the account unavailable.
   """
   @spec close_bank(account) :: :ok
-  def close_bank(account) do
-    GenServer.stop(account)
-  end
+  def close_bank(account), do: GenServer.stop(account)
 
   @doc """
   Get the account's balance.
