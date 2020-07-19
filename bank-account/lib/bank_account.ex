@@ -19,7 +19,7 @@ defmodule BankAccount do
   """
   @spec close_bank(account) :: :ok
   def close_bank(account) do
-    GenServer.cast(account, :close_account)
+    GenServer.stop(account)
   end
 
   @doc """
@@ -27,10 +27,10 @@ defmodule BankAccount do
   """
   @spec balance(account) :: integer
   def balance(account) do
-    if account_closed?(account) do
-      {:error, :account_closed}
-    else
+    if Process.alive?(account) do
       GenServer.call(account, :balance)
+    else
+      {:error, :account_closed}
     end
   end
 
@@ -39,39 +39,20 @@ defmodule BankAccount do
   """
   @spec update(account, integer) :: :ok | {:error, :account_closed}
   def update(account, amount) do
-    if account_closed?(account) do
-      {:error, :account_closed}
-    else
+    if Process.alive?(account) do
       GenServer.cast(account, {:deposit, amount})
+    else
+      {:error, :account_closed}
     end
   end
 
-  defp account_closed?(account) do
-    GenServer.call(account, :account_closed?)
-  end
+  @impl true
+  @spec init(any) :: {:ok, integer()}
+  def init(balance \\ 0), do: {:ok, balance}
 
   @impl true
-  def init(balance \\ 0) do
-    {:ok, balance}
-  end
+  def handle_call(:balance, _from, balance), do: {:reply, balance, balance}
 
   @impl true
-  def handle_call(:balance, _from, balance) do
-    {:reply, balance, balance}
-  end
-
-  @impl true
-  def handle_call(:account_closed?, _from, status) do
-    {:reply, status == :closed, status}
-  end
-
-  @impl true
-  def handle_cast(:close_account, _balance) do
-    {:noreply, :closed}
-  end
-
-  @impl true
-  def handle_cast({:deposit, value}, balance) do
-    {:noreply, value + balance}
-  end
+  def handle_cast({:deposit, value}, balance), do: {:noreply, value + balance}
 end
