@@ -15,7 +15,8 @@ I am adding the solutions that I built for the challenges. This can be used as a
 - [Robot Simulator](https://exercism.io/my/tracks/elixir)
 - [List Ops](https://exercism.io/my/tracks/elixir)
 - [Markdown](https://exercism.io/my/tracks/elixir)
-- [Bank Account](https://exercism.io/my/tracks/elixir) - In review
+- [Bank Account](https://exercism.io/my/tracks/elixir)
+- [Zipper](https://exercism.io/my/tracks/elixir) - In review
 
 ## Extra Exercise List
 
